@@ -9,7 +9,7 @@ in a list for those particular pagination parameters.
 from typing import Tuple
 
 
-def index_range(self, page: int, page_size: int) -> Tuple[int, int]:
+def index_range(page: int, page_size: int) -> Tuple[int, int]:
     """
     Calculate the range of indexes for pagination.
 
