@@ -30,13 +30,17 @@ class Server:
         """Dataset indexed by sorting position, starting at 0."""
         if self.__indexed_dataset is None:
             dataset = self.dataset()
-            self.__indexed_dataset = {i: dataset[i] for i in range(len(dataset))}
+            self.__indexed_dataset = {
+                i: dataset[i] for i in range(len(dataset))
+            }
         return self.__indexed_dataset
 
     def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
         """Return a dictionary with pagination details and dataset page."""
-        assert isinstance(index, int) and index >= 0, "Index must be a non-negative integer"
-        assert isinstance(page_size, int) and page_size > 0, "Page_size must be a positive integer"
+        assert (isinstance(index, int) and
+                index >= 0), "Index must be a non-negative integer"
+        assert (isinstance(page_size, int) and
+                page_size > 0), "Page_size must be a positive integer"
 
         # Get the indexed dataset
         dataset = self.indexed_dataset()
