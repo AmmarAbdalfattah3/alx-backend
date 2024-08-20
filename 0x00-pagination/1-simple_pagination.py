@@ -50,15 +50,15 @@ class Server:
            page of the dataset.
         """
         assert (isinstance(page, int) and
-                page) > 0, "Page argument must be a positive integer"
+                page > 0), "Page argument must be a positive integer"
         assert (isinstance(page_size, int) and
-                page_size) > 0, "Page_size argument must be a positive integer"
+                page_size > 0), "Page_size argument must be a positive integer"
 
         data = self.dataset()
 
-        first_index, end_index = index_range(page, page_size)
+        start_index, end_index = index_range(page, page_size)
 
-        if first_index >= len(data):
+        if start_index >= len(data):
             return []
 
-        return [first_index:end_index]
+        return data[start_index:end_index]
