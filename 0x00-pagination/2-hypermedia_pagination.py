@@ -4,8 +4,8 @@ This module displays the appropriate page of the dataset
 """
 
 
-import math
 import csv
+import math
 from typing import List, Tuple, Dict
 
 
