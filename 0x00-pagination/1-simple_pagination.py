@@ -5,7 +5,6 @@ This module displays the appropriate page of the dataset
 
 
 import csv
-import math
 from typing import List
 from typing import Tuple
 
