@@ -49,8 +49,10 @@ class Server:
            the dataset correctly and return the appropriate
            page of the dataset.
         """
-        assert type(page) == int and page > 0
-        assert type(page_size) == int and page_size > 0
+        assert (type(page) == int and
+                page) > 0, "Page argument must be a positive integer"
+        assert (type(page_size) == int and
+                page_size) > 0, "Page_size argument must be a positive integer"
 
         data = self.dataset()
 
