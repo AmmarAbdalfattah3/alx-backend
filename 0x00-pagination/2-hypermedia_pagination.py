@@ -5,8 +5,7 @@ This module displays the appropriate page of the dataset
 
 
 import csv
-from typing import List
-from typing import Tuple
+from typing import List, Tuple, Dict
 
 
 def index_range(page: int, page_size: int) -> Tuple[int, int]:
