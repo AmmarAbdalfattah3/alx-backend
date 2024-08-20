@@ -65,26 +65,14 @@ class Server:
 
     def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict:
         """Return a dictionary with pagination details and dataset page."""
-        assert (isinstance(page, int) and
-                page > 0), "Page argument must be a positive integer"
-        assert (isinstance(page_size, int) and
-                page_size > 0), "Page_size argument must be a positive integer"
-
-        data = self.dataset()
-
-        total_items = len(data)
+        total_items = len(self.dataset())
         total_pages = math.ceil(total_items / page_size)
 
-        page_data = self.get_page(page, page_size)
-
-        next_page = page + 1 if page < total_pages else None
-        prev_page = page - 1 if page > 1 else None
-
         return {
-            'page_size': len(page_data),
+            'page_size': len(self.get_page(page, page_size)),
             'page': page,
-            'data': page_data,
-            'next_page': next_page,
-            'prev_page': prev_page,
+            'data': self.get_page(page, page_size),
+            'next_page': page + 1 if page < total_pages else None,
+            'prev_page': page - 1 if page > 1 else None,
             'total_pages': total_pages
         }
