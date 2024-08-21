@@ -4,7 +4,7 @@ BasicCache module
 """
 
 
-BasicCaching = __import__('basic_caching').BasicCaching
+from base_caching import BaseCaching
 
 
 class BasicCache(BaseCaching):
