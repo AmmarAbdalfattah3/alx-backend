@@ -34,6 +34,7 @@ class MRUCache(BaseCaching):
             print(f"DISCARD: {oldest_key}")
 
         self.cache_data[key] = item
+
     def get(self, key):
         """
         Retrieve an item from the cache.
