@@ -6,28 +6,20 @@
 from collections import defaultdict, OrderedDict
 from base_caching import BaseCaching
 
+
 class LFUCache(BaseCaching):
-    """LFUCache class inherits from BaseCaching and implements a Least Frequently Used (LFU) cache."""
+    """LFUCache class inherits from BaseCaching"""
 
     def __init__(self):
         """Initialize the LFUCache."""
         super().__init__()
         self.cache_data = {}
-        self.freq = defaultdict(int)  # To track the frequency of access
-        self.order = defaultdict(OrderedDict)  # To track the order of access per frequency level
-        self.min_freq = 1  # To track the minimum frequency
+        self.freq = defaultdict(int)
+        self.order = defaultdict(OrderedDict)
+        self.min_freq = 1
 
     def put(self, key, item):
         """Add an item to the cache.
-
-        If the cache exceeds BaseCaching.MAX_ITEMS, discard the least frequently used item.
-        If multiple items have the same frequency, discard the least recently used one.
-
-        Args:
-            key (str): The key to store the item under.
-            item (str): The value to store in the cache.
-
-        If `key` or `item` is None, this method does nothing.
         """
         if key is None or item is None:
             return
@@ -94,4 +86,3 @@ class LFUCache(BaseCaching):
         print("Current cache:")
         for key, value in self.cache_data.items():
             print(f"{key}: {value}")
-
