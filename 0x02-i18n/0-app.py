@@ -15,9 +15,10 @@ def index():
     """
     return render_template('index.html')
 
+
 if __name__ == '__main__':
     """
-    The script will run the Flask development server if the script is 
+    The script will run the Flask development server if the script is
     executed directly (i.e., not imported as a module).
     """
     app.run(debug=True)
